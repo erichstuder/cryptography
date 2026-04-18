@@ -1,0 +1,16 @@
+FROM mcr.microsoft.com/devcontainers/python:3.0.6-3.14-trixie
+
+RUN apt-get update && apt-get install -y \
+    tig
+
+RUN pip install --no-cache-dir \
+    jupyter==1.1.1 \
+    pytest==9.0.2 \
+    pytest-mock==3.15.1 \
+    nbstripout==0.9.1 \
+    numpy==2.4.4 \
+    matplotlib==3.10.8 \
+    sympy==1.14.0
+
+# To clean notebook content before commit the .gittattributes has been created with:
+# nbstripout --install --attributes .gitattributes
